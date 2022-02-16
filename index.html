@@ -13,7 +13,84 @@
     <link rel="stylesheet" href="./css/responsive.css">
 </head>
 <body>
-    
+    <!-- Header Start -->
+    <header>
+        <nav class="navbar navbar-light">
+            <div class="container-fluid">
+              <span class="navbar-brand logo text-primary mx-auto mb-0 h1">Savings Calculator</span>
+            </div>
+          </nav>
+    </header>
+    <!-- Header End -->
+
+    <!-- Main Start -->
+    <main>
+        <section class="savings-calculator-section">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="saving-img-wrapper"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Savings Calculator Start -->
+                        <div class="savings-calculator-wrapper text-center">
+                            <!-- Income Input Area Start -->
+                            <h3 class="income-title">Income</h3>
+                            <div class="income-input-area d-flex justify-content-end px-5 my-3 align-items-center">
+                                <label for="income">Income:</label>
+                                <input type="text" class="ms-4" placeholder="Income amount" id="income">
+                            </div>
+                            <!-- Income Input Area End -->
+
+                            <!-- Expenses Input Area Start -->
+                            <h3 class="expenses-title mt-4">Expenses</h3>
+                            <div class="food-input-area d-flex justify-content-end px-5 my-3 align-items-center">
+                                <label for="food">Food:</label>
+                                <input type="text" class="ms-4" id="food" placeholder="Food expenses">
+                            </div>
+                            <div class="rent-input-area d-flex justify-content-end px-5 my-3 align-items-center">
+                                <label for="rent">Rent:</label>
+                                <input type="text" class="ms-4" id="rent" placeholder="Rent expenses">
+                            </div>
+                            <div class="clothes-input-area d-flex justify-content-end px-5 my-3 align-items-center">
+                                <label for="clothes">Clothes:</label>
+                                <input type="text" class="ms-4" id="clothes" placeholder="Clothes expenses">
+                            </div>
+                            <!-- Expenses Input Area End -->
+                            
+                            <!-- Calculate Button Start -->
+                            <button class="primary-btn btn-primary rounded my-3" id="calculate-btn">Calculate</button>
+                            <!-- Calculate Button Start -->
+                            
+                            <!-- Total Expenses and Balance Start -->
+                            <h3 class="mt-4">Total Expenses: <span id="total-expenses">000</span></h3>
+                            <h3 class="mt-4">Balance: <span id="balance">000</span></h3>
+                            <!-- Total Expenses and Balance Start -->
+                            
+                            <!-- Saving Percentage Input Area Start -->
+                            <div class="saving-input-area mt-4">
+                                <label for="save">Save:</label>
+                                <input type="text" class="ms-3 text-center w-25" id="save" placeholder="Percent"> <span class="mx-3">%</span>
+                                <button class="primary-btn btn-primary rounded">Save</button>
+                            </div>
+                            
+                            <!-- Saving Percentage Input Area End -->
+                            
+                            <!-- Saving and Remaining Amount Start -->
+                            <div class="d-block">
+                                <h3 class="mt-4">Saving Amount: <span id="saving-amount">000</span></h3>
+                                <h3 class="mt-3">Remaining Balance: <span id="remaining-balance">000</span></h3>
+                            </div>
+                            
+                            <!-- Saving and Remaining Amount End -->
+                        </div>
+                        <!-- Savings Calculator End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Main End -->
     
 
     <!-- Bootstrap 5 JS CDN -->
