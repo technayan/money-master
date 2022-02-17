@@ -27,7 +27,7 @@
     <main>
         <section class="savings-calculator-section">
             <div class="container">
-                <div class="row mt-5">
+                <div class="row my-5">
                     <div class="col-md-6">
                         <div class="saving-img-wrapper"></div>
                     </div>
@@ -46,15 +46,15 @@
                             <h3 class="expenses-title mt-4">Expenses</h3>
                             <div class="food-input-area d-flex justify-content-end px-5 my-3 align-items-center">
                                 <label for="food">Food:</label>
-                                <input type="text" class="ms-4" id="food" placeholder="Food expenses">
+                                <input type="text" class="ms-4" id="food" placeholder="Food expense">
                             </div>
                             <div class="rent-input-area d-flex justify-content-end px-5 my-3 align-items-center">
                                 <label for="rent">Rent:</label>
-                                <input type="text" class="ms-4" id="rent" placeholder="Rent expenses">
+                                <input type="text" class="ms-4" id="rent" placeholder="Rent expense">
                             </div>
                             <div class="clothes-input-area d-flex justify-content-end px-5 my-3 align-items-center">
                                 <label for="clothes">Clothes:</label>
-                                <input type="text" class="ms-4" id="clothes" placeholder="Clothes expenses">
+                                <input type="text" class="ms-4" id="clothes" placeholder="Clothes expense">
                             </div>
                             <!-- Expenses Input Area End -->
                             
@@ -89,6 +89,18 @@
                 </div>
             </div>
         </section>
+
+        <!-- Error Messages Start -->
+        
+        <div id="error" class="rounded">
+            <div class="error-box">
+                <h4 class="error-title text-danger">Error!</h3>
+                <p class="error-body">Please, Enter a positive number as <span id="error-field"></span>!</p>
+                <button id="error-close-btn" class="close-btn text-danger">x</button>
+            </div>
+        </div>
+
+        <!-- Error Messages End -->
     </main>
     <!-- Main End -->
     
