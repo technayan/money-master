@@ -1,0 +1,56 @@
+/***** Responsive CSS for Tablet Start *****/
+
+@media (max-width: 991.98px) {
+    /* Saving Calculator Responsive CSS Start */
+
+    .savings-calculator-wrapper {
+        padding: 20px;
+    }
+    .input-area {
+        flex-direction: column;
+    }
+
+    /* Saving Calculator Responsive CSS End */
+}
+
+/***** Responsive CSS for Tablet End *****/
+
+/***** Responsive CSS for Mobile Start *****/
+@media (max-width: 767.98px) {
+    /* Header Responsive CSS Start */
+
+    .logo {
+        font-size: 22px;
+    }
+    
+    /* Header Responsive CSS End */
+
+    /* Saving Calculator Responsive CSS Start */
+
+    .saving-img-wrapper {
+        height: 200px;
+    }
+
+    .savings-calculator-wrapper {
+        padding: 10px 0;
+    }
+
+    h3 span {
+        display: block;
+        margin-top: 10px;
+        font-size: 25px;
+    }
+    
+    #error {
+        width: 240px;
+        padding: 15px 10px;
+    }
+
+    .error-body {
+        font-size: 14px;
+    }
+
+    /* Saving Calculator Responsive CSS End */
+}
+
+/***** Responsive CSS for Mobile Start End *****/

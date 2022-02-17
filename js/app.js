@@ -36,6 +36,8 @@ function calculateBalance () {
     const foodExpense = parseFloat(foodInput.value);
     const rentExpense = parseFloat(rentInput.value);
     const clothesExpense = parseFloat(clothesInput.value);
+
+    // Error checking
     errorCheck(clothesExpense, 'Clothes Expense');
     errorCheck(rentExpense, 'Rent Expense');
     errorCheck(foodExpense, 'Food Expense');
@@ -45,15 +47,14 @@ function calculateBalance () {
         const expensesInTotal = (foodExpense + rentExpense + clothesExpense);
 
         if (income < expensesInTotal) {
+
+            // Calling Insufficient Balance Function
             insufficientBalance('expend', 'income');
         } else {
             errorBox.style.display = 'none';
             totalExpenses.innerText = expensesInTotal; 
             balance.innerText = income - expensesInTotal;
-
-            // calculateRemaining();
         }
-        
     }
 }
 
@@ -61,11 +62,13 @@ function calculateBalance () {
 function calculatePercentage () {
     const percentage = parseFloat(savingPercentage.value);
     
+    // Error Checking
     errorCheck(percentage, 'Saving Percentage');
     if (percentage > -1) {
         const income = getIncome();
         const saving = income * (percentage / 100); 
 
+        // Calling Calculate Remaining function
         calculateRemaining(saving);
     }
     
@@ -76,6 +79,8 @@ function calculateRemaining (saving) {
     const balanceAmount = parseFloat(balance.innerText);
     const saveMoney = saving;
     if (balanceAmount < saveMoney) {
+
+        // Calling Insufficient Balance Function
         insufficientBalance('save', 'balance');
     } else {
         errorBox.style.display = 'none';
@@ -89,6 +94,8 @@ function calculateRemaining (saving) {
 function closeError () {
     errorBox.style.display = 'none';
 }
+
+// Error Check Function
 function errorCheck(input, field) {
     if (isNaN(input) || (input < 0)) {
         errorBox.style.display = 'block';
@@ -98,10 +105,8 @@ function errorCheck(input, field) {
     } 
 }
 
+// Insufficient Balance Function
 function insufficientBalance(action, capital) {
     errorBox.style.display = 'block';
     errorBody.innerText = 'You cannot ' + action + ' more than your ' + capital + '!';
 }
-
-
-
