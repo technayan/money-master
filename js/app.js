@@ -12,6 +12,7 @@ const saveBtn = document.getElementById('save-btn');
 const savingAmount = document.getElementById('saving-amount');
 const remainingBalance = document.getElementById('remaining-balance');
 const errorBox = document.getElementById('error');
+const errorBody = document.querySelector('.error-body');
 const errorField = document.getElementById('error-field');
 const errorCloseBtn = document.getElementById('error-close-btn');
 
@@ -35,34 +36,72 @@ function calculateBalance () {
     const foodExpense = parseFloat(foodInput.value);
     const rentExpense = parseFloat(rentInput.value);
     const clothesExpense = parseFloat(clothesInput.value);
-    
-    const expensesInTotal = (foodExpense + rentExpense + clothesExpense);
-    totalExpenses.innerText = expensesInTotal; 
-    balance.innerText = income - expensesInTotal;
+    errorCheck(clothesExpense, 'Clothes Expense');
+    errorCheck(rentExpense, 'Rent Expense');
+    errorCheck(foodExpense, 'Food Expense');
+    errorCheck(income, 'Income Amount');
 
-    calculateRemaining();
-    
+    if ((clothesExpense > -1) && (rentExpense > -1) && (foodExpense > -1) && (income > -1)) {
+        const expensesInTotal = (foodExpense + rentExpense + clothesExpense);
+
+        if (income < expensesInTotal) {
+            insufficientBalance('expend', 'income');
+        } else {
+            errorBox.style.display = 'none';
+            totalExpenses.innerText = expensesInTotal; 
+            balance.innerText = income - expensesInTotal;
+
+            // calculateRemaining();
+        }
+        
+    }
 }
 
 // Calculate Percentage Function
 function calculatePercentage () {
     const percentage = parseFloat(savingPercentage.value);
-    const income = getIncome();
-    const saving = income * (percentage / 100); 
-    savingAmount.innerText = saving;
+    
+    errorCheck(percentage, 'Saving Percentage');
+    if (percentage > -1) {
+        const income = getIncome();
+        const saving = income * (percentage / 100); 
 
-    calculateRemaining();
-}
+        calculateRemaining(saving);
+    }
+    
+};
 
 // Calculate Remaining Function
-function calculateRemaining () {
+function calculateRemaining (saving) {
     const balanceAmount = parseFloat(balance.innerText);
-    const saving = parseFloat(savingAmount.innerText);
-    const remain = balanceAmount - saving;
-    remainingBalance.innerText = remain;
-}
+    const saveMoney = saving;
+    if (balanceAmount < saveMoney) {
+        insufficientBalance('save', 'balance');
+    } else {
+        errorBox.style.display = 'none';
+        savingAmount.innerText = saving;
+        const remain = balanceAmount - saveMoney;
+        remainingBalance.innerText = remain;
+    };
+};
 
 // Close Error Function 
 function closeError () {
     errorBox.style.display = 'none';
 }
+function errorCheck(input, field) {
+    if (isNaN(input) || (input < 0)) {
+        errorBox.style.display = 'block';
+        errorField.innerText = field;
+    } else {
+        return input;
+    } 
+}
+
+function insufficientBalance(action, capital) {
+    errorBox.style.display = 'block';
+    errorBody.innerText = 'You cannot ' + action + ' more than your ' + capital + '!';
+}
+
+
+
